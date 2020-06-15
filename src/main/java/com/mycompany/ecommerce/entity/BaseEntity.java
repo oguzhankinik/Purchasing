@@ -10,6 +10,7 @@ import javax.persistence.Version;
 
 import lombok.Getter;
 import lombok.Setter;
+import lombok.ToString;
 
 /**
  * 
@@ -17,6 +18,7 @@ import lombok.Setter;
  *
  */
 @MappedSuperclass
+@ToString
 public abstract class BaseEntity implements Serializable {
 
 	private static final long serialVersionUID = 3094617549302193217L;
@@ -26,7 +28,7 @@ public abstract class BaseEntity implements Serializable {
 	protected Long version;
 	
 	@Getter @Setter
-	@Column(name = "create_time")
+	@Column
 	protected LocalDateTime createTime;
 	
 	@PrePersist

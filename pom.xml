@@ -16,7 +16,8 @@
 	<description>Purchasing Spring Boot Maven project</description>
 
 	<properties>
-		<java.version>11</java.version>
+		<java.version>8</java.version>
+		<maven.build.timestamp.format>yyyy-MM-dd'T'HH:mm:ss'Z'</maven.build.timestamp.format>
 	</properties>
 
 	<dependencies>
@@ -50,15 +51,19 @@
 		<dependency>
 			<groupId>com.h2database</groupId>
 			<artifactId>h2</artifactId>
-			<scope>runtime</scope>
+			<version>1.4.200</version>
+			<!-- <scope>runtime</scope> -->
 		</dependency>
 
 		<!-- lombok dependency -->
 		<dependency>
 			<groupId>org.projectlombok</groupId>
 			<artifactId>lombok</artifactId>
-			<optional>true</optional>
+			<version>1.18.12</version>
+			<scope>provided</scope>
 		</dependency>
+
+
 
 		<!-- object validation -->
 		<dependency>
@@ -73,6 +78,24 @@
 			<version>3.10</version>
 		</dependency>
 
+		<!-- mapping Entity to DTO -->
+		<dependency>
+			<groupId>org.modelmapper</groupId>
+			<artifactId>modelmapper</artifactId>
+			<version>2.3.8</version>
+		</dependency>
+
+		<!-- REST APIs document -->
+		<dependency>
+			<groupId>io.springfox</groupId>
+			<artifactId>springfox-swagger2</artifactId>
+			<version>2.9.2</version>
+		</dependency>
+		<dependency>
+			<groupId>io.springfox</groupId>
+			<artifactId>springfox-swagger-ui</artifactId>
+			<version>2.9.2</version>
+		</dependency>
 
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -86,6 +109,15 @@
 			</exclusions>
 		</dependency>
 	</dependencies>
+
+	<repositories>
+		<!-- SpringFox releases -->
+		<repository>
+			<id>jcenter-snapshots</id>
+			<name>jcenter</name>
+			<url>https://jcenter.bintray.com/</url>
+		</repository>
+	</repositories>
 
 	<build>
 		<plugins>

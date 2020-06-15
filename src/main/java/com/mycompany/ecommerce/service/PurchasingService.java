@@ -2,7 +2,10 @@ package com.mycompany.ecommerce.service;
 
 import java.util.List;
 
-import com.mycompany.ecommerce.entity.Purchasing;
+import org.springframework.data.domain.Pageable;
+
+import com.mycompany.ecommerce.dto.PageT;
+import com.mycompany.ecommerce.dto.PurchasingInvoiceDTO;
 
 /**
  * 
@@ -11,8 +14,10 @@ import com.mycompany.ecommerce.entity.Purchasing;
  */
 public interface PurchasingService {
 
-	public void save(final Purchasing purchasing);
-	
-	public List<Purchasing> list(final boolean approval);
-	
+	PurchasingInvoiceDTO add(final PurchasingInvoiceDTO purchasingInvoice);
+
+	List<PurchasingInvoiceDTO> list(final boolean approval);
+
+	PageT<PurchasingInvoiceDTO> list(final Pageable pageable, final boolean approval);
+
 }
